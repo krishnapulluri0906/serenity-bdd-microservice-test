@@ -1,1 +1,1 @@
-# serenity-bdd-microservice-test
+# serentiy-microservice-sample
