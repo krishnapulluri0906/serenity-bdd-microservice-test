@@ -36,12 +36,10 @@ public class SwapiAPIImplementation extends RESTOperations {
 	}
 
 	public Response getPlanetServiceCall(String actualHomeWorldValue) {
-		// TODO Auto-generated method stub
 		return response = getService(actualHomeWorldValue);
 	}
 
 	public Response getPlanetServiceCall() {
-		// TODO Auto-generated method stub
 		return response = getServiceWithPathParams("wookiee", BASE_URL + PLANETS + "/14/");
 
 	}

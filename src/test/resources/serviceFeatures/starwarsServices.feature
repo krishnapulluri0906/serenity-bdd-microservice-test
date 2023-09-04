@@ -1,10 +1,13 @@
 @starwarapitests
 Feature: Starwar API tests
   The Star Wars API is a public API containing facts about the Star Wars universe.
+  
+  Background: pre-requisite to test swapi service
+  Given I want to test SWAPI service
+  
 
   @CRUDOperations
   Scenario Outline: Create Employee Records_<tc_id>
-    Given I want to test SWAPI service
     When I do a request for SWAPI species service "<request_type>"
     Then I validate the response with statuscode is "<expectedStatus>" and "<expectedValue>"
 
@@ -17,7 +20,6 @@ Feature: Starwar API tests
 
   @tagStarships
   Scenario Outline: Validate the response for starships_<tc_id>
-    Given I want to test SWAPI service
     When I do GET request for star ships endpoint
     Then I validate the response with status code "<expectedStatus>"
     And I validate the response with expected values "<name>" and "<crew_count>"
@@ -28,7 +30,6 @@ Feature: Starwar API tests
 
   @tagPeople
   Scenario Outline: Validate the response for people endpoint_<tc_id>
-    Given I want to test SWAPI service
     When I do GET request for people endpoint
     Then I validate the response with status code "<expectedStatus>"
     And I validate the response with expected values "<name>" "<skin_color>" and "<films>"
@@ -39,7 +40,6 @@ Feature: Starwar API tests
 
   @tagSpecies
   Scenario Outline: Validate the response for species_<tc_id>
-    Given I want to test SWAPI service
     When I do GET request for species endpoint
     Then I validate the response with status code "<expectedStatus>"
     And I validate the species response with expected values "<name>" "<classification>" and "<homeworld>"
@@ -50,7 +50,6 @@ Feature: Starwar API tests
 
   @wookieFormat
   Scenario Outline: Validate the response for planes api in wookie format_<tc_id>
-    Given I want to test SWAPI service
     When I do GET request for planets endpoint in wookie format
     Then I validate the response with status code "<expectedStatus>"
 
