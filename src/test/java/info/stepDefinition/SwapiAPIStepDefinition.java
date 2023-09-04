@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Assert;
 
+import info.reusables.customEnsure;
 import info.stepImplementation.SwapiAPIImplementation;
 import io.cucumber.java.en.*;
 import io.restassured.path.json.JsonPath;
@@ -23,7 +24,7 @@ public class SwapiAPIStepDefinition {
 
 	}
 
-	@When("I do a request for SWAPI service {string}")
+	@When("I do a request for SWAPI species service {string}")
 	public void i_do_a_request_for_SWAPI_service(String request_type) {
 		if (request_type.equals("GET")) {
 			response = swapImpl.getStarWarsServiceCall();
@@ -33,8 +34,10 @@ public class SwapiAPIStepDefinition {
 
 		} else if (request_type.equals("PUT")) {
 			response = swapImpl.putStarWarsServiceCall();
-		} else {
+		} else if (request_type.equals("DELETE")){
 			response = swapImpl.deleteStarWarsServiceCall();
+		}else {
+			customEnsure.customLogWithoutScreenShot("request type doesn't match the condition", "fail");
 		}
 
 	}
