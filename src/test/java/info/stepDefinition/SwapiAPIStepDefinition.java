@@ -34,9 +34,9 @@ public class SwapiAPIStepDefinition {
 
 		} else if (request_type.equals("PUT")) {
 			response = swapImpl.putStarWarsServiceCall();
-		} else if (request_type.equals("DELETE")){
+		} else if (request_type.equals("DELETE")) {
 			response = swapImpl.deleteStarWarsServiceCall();
-		}else {
+		} else {
 			customEnsure.customLogWithoutScreenShot("request type doesn't match the condition", "fail");
 		}
 
@@ -51,13 +51,12 @@ public class SwapiAPIStepDefinition {
 	public void i_do_a_GET_request_for_SWAPI_service() {
 		response = swapImpl.getPeopleServiceCall();
 		System.out.println(response.prettyPrint());
-		
 
 	}
 
 	@Then("I validate the response with statuscode is {string}")
-	public void i_validate_the_response_with_statuscode_is(String string) {
-		Assert.assertEquals(200, response.getStatusCode());
+	public void i_validate_the_response_with_statuscode_is(String responseCode) {
+		Assert.assertEquals(responseCode, response.getStatusCode());
 
 	}
 
