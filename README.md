@@ -2,7 +2,7 @@
 Install JDK and Maven software
 Checkout the code from github repository
 
-# Execute below maven command to run the selenium test suite.
+# Execute below maven command to run the serenity rest assured test suite.
 
 mvn clean verify -Dcucumber.options="--tags '@starwarapitests'"
 
